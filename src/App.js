@@ -1,5 +1,6 @@
 //import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
  const person=[{name:"Boopathi",image:"https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg"
@@ -13,11 +14,23 @@ function App() {
   );
 }
  export default App;
+ function Counter(){
+   const[like,setLike]=useState(0);
+   const[dislike,setDislike]=useState(0);
+   return(
+     <div className="counter-container">
+       <button className="like-button" onClick={()=>setLike(like+1)}>👍<span>{like}</span></button>
+       <button className="dislike-button" onClick={()=>setDislike(dislike+1)}>👎<span>{dislike}</span></button>
+      {/* <p>{like}</p> */}
+     </div>
+   );
+ }
 
  function Message({name,image}){
    return <div>
      <img className="profile-pic" src={image} alt="profile pic"/>
      <h1>Hello, {name}</h1>
+     <Counter/>
      </div>;
 
  }
